@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0e1020;
+  /* Deep Charcoal */
+  --foreground: #ffffff;
+  --accent: #00f0ff;
+  /* Vibrant Cyan/Electric Blue */
+  --accent-muted: rgba(0, 240, 255, 0.15);
+  --card-bg: rgba(255, 255, 255, 0.02);
+  --card-border: rgba(255, 255, 255, 0.06);
+}
+
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-snap-type: y mandatory;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-muted: var(--accent-muted);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  background-image: radial-gradient(circle at 15% 50%, rgba(0, 240, 255, 0.03), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(138, 43, 226, 0.03), transparent 25%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  text-rendering: optimizeLegibility;
+}
+
+[lang="ar"] * {
+  letter-spacing: normal !important; /* Arabic cursive fixes */
+  font-weight: 400 !important; /* Lalezar is already thick. Prevent Windows Faux-Bolding which causes blur */
+  font-synthesis: none !important; /* Prevent artificial bold/italic rendering */
+  -webkit-font-smoothing: antialiased !important; /* Crisp edges on Windows */
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+}
+
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+}
+
+.glow-effect {
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.05);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glow-effect:hover {
+  box-shadow: 0 0 50px rgba(0, 240, 255, 0.15);
+  border-color: rgba(0, 240, 255, 0.4);
+  transform: translateY(-5px);
+}
+
+/* Scroll Jacking / Snap Scroll */
+.snap-container {
+  /* Removed fixed height and overflow to let Lenis handle window scrolling */
+  width: 100%;
+}
+
+.snap-section {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .snap-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

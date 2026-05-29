@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+  
+[build.environment]
+  npm_config_legacy_peer_deps = "true"
+  NODE_OPTIONS = "--max-old-space-size=4096"
