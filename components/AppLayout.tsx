@@ -11,7 +11,7 @@ import { useLanguage, Language } from "@/contexts/LanguageContext";
 export default function AppLayout({ children }: { children: React.ReactNode }) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isMobileLangOpen, setIsMobileLangOpen] = useState(false);
-    const { lang, setLang } = useLanguage();
+    const { lang, setLang, t } = useLanguage();
     const pathname = usePathname();
 
     const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -139,8 +139,15 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             />
 
             {/* Main Content Area */}
-            <main className="flex-1 w-full md:w-[calc(100%-6rem)] md:ml-24 min-h-screen relative pt-20 md:pt-0 pb-12 overflow-x-hidden">
-                {children}
+            <main className="flex-1 w-full md:w-[calc(100%-6rem)] md:ml-24 min-h-screen relative pt-20 md:pt-0 flex flex-col overflow-x-hidden">
+                <div className="flex-1 pb-12">
+                    {children}
+                </div>
+                <footer className="w-full py-6 text-center text-[#8a9ab0] border-t border-card-border/50 glass z-10 relative mt-auto">
+                    <p className="text-sm font-medium tracking-wide" dir={lang === "AR" ? "rtl" : "ltr"}>
+                        {t("footer.managedBy")} <span className="text-accent font-bold" dir="ltr">Kareem Ahmed & Zeyad Hany</span>
+                    </p>
+                </footer>
             </main>
         </div>
     );

@@ -71,9 +71,9 @@ const translations: Record<Language, TranslationDictionary> = {
         "auth.logout": "Sign Out",
         "auth.welcome": "Welcome back",
         "auth.credits": "Credits",
-        "auth.noCredits": "No Credits",
         "auth.needLogin": "Login to Use",
-        "auth.loginDesc": "Sign in to access premium AI tools and manage your credits."
+        "auth.loginDesc": "Sign in to access premium AI tools and manage your credits.",
+        "footer.managedBy": "This website is managed by"
     },
     AR: {
         "nav.dashboard": "الرئيسية",
@@ -137,9 +137,9 @@ const translations: Record<Language, TranslationDictionary> = {
         "auth.logout": "تسجيل الخروج",
         "auth.welcome": "أهلاً بك مجدداً",
         "auth.credits": "الرصيد",
-        "auth.noCredits": "لا يوجد رصيد",
         "auth.needLogin": "سجل دخول للاستخدام",
-        "auth.loginDesc": "قم بتسجيل الدخول للوصول إلى أدوات الذكاء الاصطناعي وإدارة رصيدك."
+        "auth.loginDesc": "قم بتسجيل الدخول للوصول إلى أدوات الذكاء الاصطناعي وإدارة رصيدك.",
+        "footer.managedBy": "تتم ادارة هذا الموقع بواسطة"
     },
     FR: {
         "nav.dashboard": "Accueil",
@@ -196,9 +196,9 @@ const translations: Record<Language, TranslationDictionary> = {
         "ff.visualAnalysis": "Analyse Visuelle",
         "ff.recColor": "Couleur Recommandée",
         "ff.placement": "Meilleur Placement",
-        "ff.topMatch": "Top 3 des Polices",
         "ff.activePreview": "Aperçu Actif",
-        "ff.viewGoogle": "Voir sur Google"
+        "ff.viewGoogle": "Voir sur Google",
+        "footer.managedBy": "Ce site web est géré par"
     },
     DE: {
         "nav.dashboard": "Startseite",
@@ -255,9 +255,9 @@ const translations: Record<Language, TranslationDictionary> = {
         "ff.visualAnalysis": "Visuelle Analyse",
         "ff.recColor": "Empfohlene Farbe",
         "ff.placement": "Beste Platzierung",
-        "ff.topMatch": "Top 3 Schriftarten",
         "ff.activePreview": "Aktive Vorschau",
-        "ff.viewGoogle": "Auf Google ansehen"
+        "ff.viewGoogle": "Auf Google ansehen",
+        "footer.managedBy": "Diese Website wird verwaltet von"
     }
 };
 
