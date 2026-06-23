@@ -14,17 +14,19 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
+  session: { strategy: "database" },
   callbacks: {
-    async session({ session, user, token }) {
-      // Temporary bypass: hardcode credits to 9999 to get site fully working
-      session.user.credits = 9999;
+    async session({ session, user }) {
+      if (!user) return session;
+
+      const { data, error } = await supabaseAdmin
+        .from('users')
+        .select('credits')
+        .eq('id', user.id)
+        .single();
       
-      // Handle both JWT and Database strategy gracefully
-      if (user?.id) {
-        session.user.id = user.id;
-      } else if (token?.sub) {
-        session.user.id = token.sub;
-      }
+      session.user.credits = data?.credits ?? 50;
+      session.user.id = user.id;
       
       return session;
     },
