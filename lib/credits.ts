@@ -12,6 +12,7 @@ export async function checkAndDeductCredits(cost: number = 1) {
 
   // 1. Get current credits
   const { data: user, error: fetchError } = await supabaseAdmin
+    .schema('next_auth')
     .from('users')
     .select('credits')
     .eq('id', userId)
@@ -27,6 +28,7 @@ export async function checkAndDeductCredits(cost: number = 1) {
 
   // 2. Deduct credits
   const { error: updateError } = await supabaseAdmin
+    .schema('next_auth')
     .from('users')
     .update({ credits: user.credits - cost })
     .eq('id', userId);
@@ -43,6 +45,7 @@ export async function getUserCredits() {
     if (!session?.user?.id) return 0;
 
     const { data: user } = await supabaseAdmin
+        .schema('next_auth')
         .from('users')
         .select('credits')
         .eq('id', session.user.id)

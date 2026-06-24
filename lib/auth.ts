@@ -20,6 +20,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (!user) return session;
 
       const { data, error } = await supabaseAdmin
+        .schema('next_auth')
         .from('users')
         .select('credits')
         .eq('id', user.id)
