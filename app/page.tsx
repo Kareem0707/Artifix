@@ -91,8 +91,27 @@ export default function Home() {
     },
   ];
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ArtiFix",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Web",
+    "description": "The ultimate AI toolkit for creators. Write SEO articles, fix Arabic fonts, upscale images and videos, and denoise audio.",
+    "url": "https://artifix.tech",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  };
+
   return (
     <div className="snap-container bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* 1. Hero Section */}
       <section className="snap-section flex flex-col justify-center items-center text-center px-12 lg:px-24 relative">
         <motion.div

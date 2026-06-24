@@ -36,8 +36,46 @@ const lalezar = Lalezar({
 });
 
 export const metadata: Metadata = {
-  title: "ArtiFix - The Ultimate AI Tool-kit for Designers & Creators",
-  description: "AI Font Fixer, Content Architect, Visual Transformer, and more.",
+  metadataBase: new URL("https://artifix.tech"),
+  title: {
+    default: "ArtiFix | The Ultimate AI Tool-kit for Creators & Designers",
+    template: "%s | ArtiFix"
+  },
+  description: "The most powerful AI toolkit for content creators, designers, and marketers. Write SEO articles, fix Arabic fonts, upscale images and videos, and denoise audio with cutting-edge AI.",
+  keywords: [
+    "AI toolkit", "artificial intelligence", "content creator tools", "SEO article writer", 
+    "Arabic font fixer", "image upscaler", "video upscaler 4k", "audio denoise",
+    "الذكاء الاصطناعي", "أدوات الذكاء الاصطناعي", "كتابة مقالات بالذكاء الاصطناعي",
+    "تصحيح الخطوط العربية", "تحسين جودة الصور", "توضيح الفيديوهات", "تنقية الصوت"
+  ],
+  authors: [{ name: "ArtiFix Team" }],
+  creator: "ArtiFix",
+  publisher: "ArtiFix",
+  openGraph: {
+    type: "website",
+    locale: "ar_EG",
+    url: "https://artifix.tech",
+    siteName: "ArtiFix",
+    title: "ArtiFix | The Ultimate AI Tool-kit for Creators",
+    description: "The most powerful AI toolkit for content creators, designers, and marketers. Write SEO articles, fix Arabic fonts, upscale images and videos, and denoise audio with cutting-edge AI.",
+    images: [
+      {
+        url: "/icon.png",
+        width: 800,
+        height: 600,
+        alt: "ArtiFix Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ArtiFix | The Ultimate AI Tool-kit for Creators",
+    description: "The most powerful AI toolkit for content creators, designers, and marketers. Write SEO articles, fix Arabic fonts, upscale images and videos, and denoise audio.",
+    images: ["/icon.png"],
+  },
+  alternates: {
+    canonical: "https://artifix.tech",
+  },
 };
 
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
