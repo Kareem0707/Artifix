@@ -26,8 +26,8 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ error: "No topic provided" }, { status: 400 });
         }
 
-        // We use gemini-2.5-flash to ensure compatibility with free tier API limits while maintaining high speed and quality.
-        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+        // We use gemini-1.5-flash to avoid the 503 errors on the newer 2.5 model
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
         const requestedLanguage = language === 'AR' ? 'Arabic' : language === 'FR' ? 'French' : language === 'DE' ? 'German' : 'English';
 
