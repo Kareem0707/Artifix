@@ -94,24 +94,23 @@ export default function RootLayout({
   // We can dynamically control 'dir' and 'lang' later if implementing full i18n
   return (
     <html lang="en" dir="ltr">
+      <head>
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJGGTV1FL9"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-VJGGTV1FL9');
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${outfit.variable} ${geistMono.variable} ${oiFont.variable} ${alexandria.variable} ${cairo.variable} ${lalezar.variable} bg-background text-foreground min-h-screen relative`}
       >
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-VJGGTV1FL9"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){window.dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-VJGGTV1FL9');
-          `}
-        </Script>
-
         <AuthProvider>
           <LanguageProvider>
             <SmoothScrollProvider>
