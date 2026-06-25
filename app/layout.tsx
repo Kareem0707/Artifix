@@ -84,6 +84,8 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 
 import AuthProvider from "@/components/AuthProvider";
 
+import Script from "next/script";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -95,6 +97,21 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${geistMono.variable} ${oiFont.variable} ${alexandria.variable} ${cairo.variable} ${lalezar.variable} bg-background text-foreground min-h-screen relative`}
       >
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-VJ08TV1F19"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-VJ08TV1F19');
+          `}
+        </Script>
+
         <AuthProvider>
           <LanguageProvider>
             <SmoothScrollProvider>
